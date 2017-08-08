@@ -40,6 +40,7 @@ class NewsFragment : MvpAppCompatFragment() {
                         "url"
                 ))
             }
+            (rvNews.adapter as NewsAdapter).addNews(news)
         }
     }
 

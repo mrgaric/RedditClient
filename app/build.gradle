@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 25
@@ -49,7 +50,6 @@ dependencies {
 
     //Moxy
     compile "com.arello-mobile:moxy-app-compat:$moxyVersion"
-    annotationProcessor "com.arello-mobile:moxy-compiler:$moxyVersion"
     kapt "com.arello-mobile:moxy-compiler:$moxyVersion"
 
     //Picasso

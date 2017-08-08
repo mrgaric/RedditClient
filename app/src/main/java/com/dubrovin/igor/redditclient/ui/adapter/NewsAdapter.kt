@@ -33,6 +33,10 @@ class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         return items.size
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return this.items[position].getViewType()
+    }
+
     fun addNews(news: List<RedditNewsItem>){
         val initPosition = items.size - 1
         items.removeAt(initPosition)
