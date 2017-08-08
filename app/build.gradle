@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 25
@@ -20,16 +21,43 @@ android {
     }
 }
 
+ext {
+    supportLibraryVersion = '25.3.1'
+    constraintLayoutVersion = '1.0.2'
+    moxyVersion = '1.5.3'
+    picassoVersion = '2.5.2'
+
+    espressoVersion = '2.2.2'
+    junitVersion = '4.12'
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$espressoVersion", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
+    testCompile "junit:junit:$junitVersion"
+
+    //Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    //Support Library
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile "com.android.support:design:$supportLibraryVersion"
+    compile "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+
+    //Moxy
+    compile "com.arello-mobile:moxy-app-compat:$moxyVersion"
+    annotationProcessor "com.arello-mobile:moxy-compiler:$moxyVersion"
+    kapt "com.arello-mobile:moxy-compiler:$moxyVersion"
+
+    //Picasso
+    compile "com.squareup.picasso:picasso:$picassoVersion"
 }
 repositories {
     mavenCentral()
+}
+kapt {
+    generateStubs = true
 }
