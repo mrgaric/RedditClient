@@ -1,7 +1,7 @@
-package com.dubrovin.igor.redditclient.model
+package com.dubrovin.igor.redditclient.data.model
 
-import com.dubrovin.igor.redditclient.ui.adapter.AdapterConstant
-import com.dubrovin.igor.redditclient.ui.adapter.ViewType
+import com.dubrovin.igor.redditclient.presentation.News.adapter.AdapterConstant
+import com.dubrovin.igor.redditclient.presentation.News.adapter.ViewType
 
 /**
  * JuntoTeam

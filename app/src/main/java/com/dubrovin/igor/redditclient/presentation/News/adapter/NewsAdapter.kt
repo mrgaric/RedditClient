@@ -1,9 +1,9 @@
-package com.dubrovin.igor.redditclient.ui.adapter
+package com.dubrovin.igor.redditclient.presentation.News.adapter
 
 import android.support.v4.util.SparseArrayCompat
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-import com.dubrovin.igor.redditclient.model.RedditNewsItem
+import com.dubrovin.igor.redditclient.data.model.RedditNewsItem
 
 class NewsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

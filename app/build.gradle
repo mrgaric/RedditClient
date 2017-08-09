@@ -27,6 +27,8 @@ ext {
     constraintLayoutVersion = '1.0.2'
     moxyVersion = '1.5.3'
     picassoVersion = '2.5.2'
+    rxJavaVersion = '2.1.0'
+    rxKotlinVersion = '2.0.0'
 
     espressoVersion = '2.2.2'
     junitVersion = '4.12'
@@ -54,6 +56,10 @@ dependencies {
 
     //Picasso
     compile "com.squareup.picasso:picasso:$picassoVersion"
+
+    //Rx
+    compile "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+    compile "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"
 }
 repositories {
     mavenCentral()

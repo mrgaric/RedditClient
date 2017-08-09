@@ -1,4 +1,4 @@
-package com.dubrovin.igor.redditclient.ui.adapter
+package com.dubrovin.igor.redditclient.presentation.News.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup

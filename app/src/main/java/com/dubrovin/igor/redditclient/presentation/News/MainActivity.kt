@@ -1,19 +1,18 @@
-package com.dubrovin.igor.redditclient.ui.activity
+package com.dubrovin.igor.redditclient.presentation.News
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import com.arellomobile.mvp.MvpAppCompatActivity
 import com.dubrovin.igor.redditclient.R
-import com.dubrovin.igor.redditclient.ui.fragment.NewsFragment
+import com.dubrovin.igor.redditclient.presentation.BaseActivity
 
-class MainActivity : MvpAppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null)
-            changeFragment(NewsFragment())
+            changeFragment(NewsFragment.newInstance(null))
     }
 
     fun changeFragment(fragment: Fragment, clearStack: Boolean = false){
