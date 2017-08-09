@@ -1,6 +1,6 @@
 package com.dubrovin.igor.redditclient.domain.interactor.newsInteractor
 
-import com.dubrovin.igor.redditclient.data.model.RedditNewsItem
+import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
 import io.reactivex.Observable
 
 /**

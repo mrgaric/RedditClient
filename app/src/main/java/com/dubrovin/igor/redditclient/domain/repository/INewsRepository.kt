@@ -1,6 +1,7 @@
 package com.dubrovin.igor.redditclient.domain.repository
 
-import com.dubrovin.igor.redditclient.data.model.RedditNewsItem
+import com.dubrovin.igor.redditclient.data.api.news.RedditNewsResponse
+import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
 import io.reactivex.Observable
 
 /**
@@ -8,5 +9,5 @@ import io.reactivex.Observable
  * Created by Igor Dubrovin on 09.08.2017.
  */
 interface INewsRepository {
-    fun getNews(): Observable<List<RedditNewsItem>>
+    fun getNews(limit: String = "10"): Observable<RedditNewsResponse>
 }

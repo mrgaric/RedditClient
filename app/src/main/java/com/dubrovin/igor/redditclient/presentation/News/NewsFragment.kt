@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.PresenterType
 import com.dubrovin.igor.redditclient.R
-import com.dubrovin.igor.redditclient.data.model.RedditNewsItem
+import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
 import com.dubrovin.igor.redditclient.presentation.BaseFragment
 import com.dubrovin.igor.redditclient.presentation.News.adapter.NewsAdapter
 import com.dubrovin.igor.redditclient.utils.inflate
+import com.dubrovin.igor.redditclient.utils.showSnackbar
 import kotlinx.android.synthetic.main.fragment_news.*
 
 class NewsFragment : BaseFragment(), NewsView {
@@ -53,5 +54,9 @@ class NewsFragment : BaseFragment(), NewsView {
 
     override fun showNews(items: List<RedditNewsItem>) {
         ((rvNews.adapter) as NewsAdapter).addNews(items)
+    }
+
+    override fun showError(message: String) {
+        rvNews.showSnackbar(message)
     }
 }

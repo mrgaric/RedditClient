@@ -2,7 +2,7 @@ package com.dubrovin.igor.redditclient.presentation.News
 
 import com.arellomobile.mvp.viewstate.strategy.AddToEndStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
-import com.dubrovin.igor.redditclient.data.model.RedditNewsItem
+import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
 import com.dubrovin.igor.redditclient.presentation.BaseView
 
 /**
