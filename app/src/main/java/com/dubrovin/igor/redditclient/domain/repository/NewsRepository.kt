@@ -10,10 +10,10 @@ import io.reactivex.Observable
  * Created by Igor Dubrovin on 09.08.2017.
  */
 class NewsRepository : INewsRepository {
-    override fun getNews(limit: String): Observable<RedditNewsResponse> = Observable.create {
+    override fun getNews(after: String, limit: String): Observable<RedditNewsResponse> = Observable.create {
         val response = RestApi.instance
                 .newsApi
-                .getTopNews("", limit)
+                .getTopNews(after, limit)
                 .execute()
         if (response.isSuccessful){
             val news = response.body()

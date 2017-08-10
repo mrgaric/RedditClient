@@ -1,5 +1,6 @@
 package com.dubrovin.igor.redditclient.domain.interactor.newsInteractor
 
+import com.dubrovin.igor.redditclient.data.entity.RedditDataResponse
 import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
 import com.dubrovin.igor.redditclient.domain.repository.NewsRepository
 import io.reactivex.Observable
@@ -9,18 +10,7 @@ import io.reactivex.Observable
  * Created by Igor Dubrovin on 09.08.2017.
  */
 class NewsInteractor : INewsInteractor {
-    override fun getNews(): Observable<List<RedditNewsItem>>
-            = NewsRepository().getNews()
-            .map { it.data
-                    .children
-                    .map {
-                        val item = it.data
-                        RedditNewsItem(item.author,
-                                item.title,
-                                item.num_comments,
-                                item.created,
-                                item.thumbnail,
-                                item.url)
-                    }
-            }
+    override fun getNews(after: String, limit: String): Observable<RedditDataResponse>
+            = NewsRepository().getNews(after)
+            .map { it.data }
 }

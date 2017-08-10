@@ -1,6 +1,7 @@
 package com.dubrovin.igor.redditclient.presentation.News
 
 import com.arellomobile.mvp.InjectViewState
+import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
 import com.dubrovin.igor.redditclient.domain.interactor.newsInteractor.NewsInteractor
 import com.dubrovin.igor.redditclient.presentation.BasePresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,8 +15,24 @@ import io.reactivex.schedulers.Schedulers
 class NewsPresenter : BasePresenter<NewsView>() {
     private val newsInteractor = NewsInteractor()
 
+    @Volatile
+    private var after: String ?= null
+
     fun getNews() {
-        newsInteractor.getNews()
+        newsInteractor.getNews(after ?:"")
+                .doOnNext { after = it.after }
+                .map {
+                    it.children
+                            .map {
+                                val item = it.data
+                                RedditNewsItem(item.author,
+                                        item.title,
+                                        item.num_comments,
+                                        item.created,
+                                        item.thumbnail,
+                                        item.url)
+                            }
+                }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

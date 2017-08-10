@@ -1,5 +1,6 @@
 package com.dubrovin.igor.redditclient.domain.interactor.newsInteractor
 
+import com.dubrovin.igor.redditclient.data.entity.RedditDataResponse
 import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
 import io.reactivex.Observable
 
@@ -8,5 +9,5 @@ import io.reactivex.Observable
  * Created by Igor Dubrovin on 09.08.2017.
  */
 interface INewsInteractor {
-    fun getNews(): Observable<List<RedditNewsItem>>
+    fun getNews(after: String, limit: String = "10"): Observable<RedditDataResponse>
 }

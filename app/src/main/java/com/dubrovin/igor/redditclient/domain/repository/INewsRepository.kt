@@ -9,5 +9,5 @@ import io.reactivex.Observable
  * Created by Igor Dubrovin on 09.08.2017.
  */
 interface INewsRepository {
-    fun getNews(limit: String = "10"): Observable<RedditNewsResponse>
+    fun getNews(after: String = "", limit: String = "10"): Observable<RedditNewsResponse>
 }
