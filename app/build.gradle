@@ -31,6 +31,7 @@ ext {
     rxKotlinVersion = '2.0.0'
     rxAndroidVersion = '2.0.1'
     retrofitVersion = '2.3.0'
+    daggerVersion = '2.11'
 
     espressoVersion = '2.2.2'
     junitVersion = '4.12'
@@ -53,8 +54,9 @@ dependencies {
     compile "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
 
     //Moxy
-    compile "com.arello-mobile:moxy-app-compat:$moxyVersion"
-    kapt "com.arello-mobile:moxy-compiler:$moxyVersion"
+    compile "com.arello-mobile:moxy:${moxyVersion}"
+    compile "com.arello-mobile:moxy-app-compat:${moxyVersion}"
+    kapt "com.arello-mobile:moxy-compiler:${moxyVersion}"
 
     //Picasso
     compile "com.squareup.picasso:picasso:$picassoVersion"
@@ -68,6 +70,10 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
     compile "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
     compile "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+
+    //Dagger
+    compile "com.google.dagger:dagger:${daggerVersion}"
+    kapt "com.google.dagger:dagger-compiler:${daggerVersion}"
 }
 repositories {
     mavenCentral()
@@ -75,3 +81,4 @@ repositories {
 kapt {
     generateStubs = true
 }
+

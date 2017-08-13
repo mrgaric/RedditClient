@@ -1,11 +1,14 @@
 package com.dubrovin.igor.redditclient.presentation.News
 
 import com.arellomobile.mvp.InjectViewState
+import com.dubrovin.igor.redditclient.RedditApplication
 import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
+import com.dubrovin.igor.redditclient.domain.interactor.newsInteractor.INewsInteractor
 import com.dubrovin.igor.redditclient.domain.interactor.newsInteractor.NewsInteractor
 import com.dubrovin.igor.redditclient.presentation.BasePresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
 /**
  * JuntoTeam
@@ -13,9 +16,14 @@ import io.reactivex.schedulers.Schedulers
  */
 @InjectViewState
 class NewsPresenter : BasePresenter<NewsView>() {
-    private val newsInteractor = NewsInteractor()
 
-    @Volatile
+    @Inject
+    lateinit var newsInteractor: INewsInteractor
+
+    init {
+        RedditApplication.presenterComponent.inject(this)
+    }
+
     private var after: String ?= null
 
     fun getNews() {

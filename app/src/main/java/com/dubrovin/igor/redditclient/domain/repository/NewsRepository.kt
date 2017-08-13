@@ -1,19 +1,29 @@
 package com.dubrovin.igor.redditclient.domain.repository
 
+import com.dubrovin.igor.redditclient.RedditApplication
+import com.dubrovin.igor.redditclient.data.api.news.INewsApi
+import com.dubrovin.igor.redditclient.data.api.news.NewsApi
 import com.dubrovin.igor.redditclient.data.api.news.RedditNewsResponse
-import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
-import com.dubrovin.igor.redditclient.utils.RestApi
+
 import io.reactivex.Observable
+import javax.inject.Inject
 
 /**
  * JuntoTeam
  * Created by Igor Dubrovin on 09.08.2017.
  */
 class NewsRepository : INewsRepository {
+
+    @Inject
+    lateinit var newsApi: INewsApi
+
+    init {
+        RedditApplication.repositoryComponent.inject(this)
+    }
+
     override fun getNews(after: String, limit: String): Observable<RedditNewsResponse> = Observable.create {
-        val response = RestApi.instance
-                .newsApi
-                .getTopNews(after, limit)
+        val response = newsApi
+                .getNews(after, limit)
                 .execute()
         if (response.isSuccessful){
             val news = response.body()
