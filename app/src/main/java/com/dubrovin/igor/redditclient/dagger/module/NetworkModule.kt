@@ -1,5 +1,6 @@
 package com.dubrovin.igor.redditclient.dagger.module
 
+import com.dubrovin.igor.redditclient.BuildConfig
 import com.dubrovin.igor.redditclient.data.api.news.RedditApi
 import dagger.Module
 import dagger.Provides
@@ -16,7 +17,7 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
-            .baseUrl("https://www.reddit.com")
+            .baseUrl(BuildConfig.REST_API_HOST)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
 
