@@ -1,4 +1,4 @@
-package com.dubrovin.igor.redditclient.data.entity
+package com.dubrovin.igor.redditclient.domain.entity
 
 import com.dubrovin.igor.redditclient.presentation.News.adapter.AdapterConstant
 import com.dubrovin.igor.redditclient.presentation.News.adapter.ViewType

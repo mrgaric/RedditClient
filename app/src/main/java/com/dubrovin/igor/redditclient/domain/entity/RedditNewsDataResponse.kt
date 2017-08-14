@@ -1,4 +1,4 @@
-package com.dubrovin.igor.redditclient.data.entity
+package com.dubrovin.igor.redditclient.domain.entity
 
 /**
  * JuntoTeam

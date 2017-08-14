@@ -33,6 +33,7 @@ ext {
     retrofitVersion = '2.3.0'
     daggerVersion = '2.11'
 
+    mockitoVersion = '1.5.0'
     espressoVersion = '2.2.2'
     junitVersion = '4.12'
 }
@@ -44,6 +45,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile "junit:junit:$junitVersion"
+
+    //Mockito
+    testCompile "com.nhaarman:mockito-kotlin-kt1.1:$mockitoVersion", { exclude group: 'org.jetbrains.kotlin' }
 
     //Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"

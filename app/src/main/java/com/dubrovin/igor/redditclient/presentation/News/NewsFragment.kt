@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.PresenterType
 import com.dubrovin.igor.redditclient.R
-import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
+import com.dubrovin.igor.redditclient.domain.entity.RedditNewsItem
 import com.dubrovin.igor.redditclient.presentation.BaseFragment
 import com.dubrovin.igor.redditclient.presentation.News.adapter.NewsAdapter
 import com.dubrovin.igor.redditclient.utils.inflate

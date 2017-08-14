@@ -1,10 +1,8 @@
 package com.dubrovin.igor.redditclient.domain.interactor.newsInteractor
 
 import com.dubrovin.igor.redditclient.RedditApplication
-import com.dubrovin.igor.redditclient.data.entity.RedditDataResponse
-import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
+import com.dubrovin.igor.redditclient.domain.entity.RedditDataResponse
 import com.dubrovin.igor.redditclient.domain.repository.INewsRepository
-import com.dubrovin.igor.redditclient.domain.repository.NewsRepository
 import io.reactivex.Observable
 import javax.inject.Inject
 

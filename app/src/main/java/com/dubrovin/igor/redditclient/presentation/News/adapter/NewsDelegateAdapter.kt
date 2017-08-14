@@ -3,7 +3,7 @@ package com.dubrovin.igor.redditclient.presentation.News.adapter
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.dubrovin.igor.redditclient.R
-import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
+import com.dubrovin.igor.redditclient.domain.entity.RedditNewsItem
 import com.dubrovin.igor.redditclient.utils.getTime
 import com.dubrovin.igor.redditclient.utils.inflate
 import com.dubrovin.igor.redditclient.utils.loadImage

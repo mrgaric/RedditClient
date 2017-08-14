@@ -1,6 +1,6 @@
 package com.dubrovin.igor.redditclient.data.api.news
 
-import com.dubrovin.igor.redditclient.data.entity.RedditDataResponse
+import com.dubrovin.igor.redditclient.domain.entity.RedditDataResponse
 
 /**
  * JuntoTeam

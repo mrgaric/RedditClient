@@ -2,9 +2,8 @@ package com.dubrovin.igor.redditclient.presentation.News
 
 import com.arellomobile.mvp.InjectViewState
 import com.dubrovin.igor.redditclient.RedditApplication
-import com.dubrovin.igor.redditclient.data.entity.RedditNewsItem
+import com.dubrovin.igor.redditclient.domain.entity.RedditNewsItem
 import com.dubrovin.igor.redditclient.domain.interactor.newsInteractor.INewsInteractor
-import com.dubrovin.igor.redditclient.domain.interactor.newsInteractor.NewsInteractor
 import com.dubrovin.igor.redditclient.presentation.BasePresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

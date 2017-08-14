@@ -1,9 +1,9 @@
-package com.dubrovin.igor.redditclient.domain.repository
+package com.dubrovin.igor.redditclient.data.repository
 
 import com.dubrovin.igor.redditclient.RedditApplication
 import com.dubrovin.igor.redditclient.data.api.news.INewsApi
-import com.dubrovin.igor.redditclient.data.api.news.NewsApi
 import com.dubrovin.igor.redditclient.data.api.news.RedditNewsResponse
+import com.dubrovin.igor.redditclient.domain.repository.INewsRepository
 
 import io.reactivex.Observable
 import javax.inject.Inject

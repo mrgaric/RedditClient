@@ -1,7 +1,7 @@
 package com.dubrovin.igor.redditclient.dagger.component
 
 import com.dubrovin.igor.redditclient.dagger.module.ApiModule
-import com.dubrovin.igor.redditclient.domain.repository.NewsRepository
+import com.dubrovin.igor.redditclient.data.repository.NewsRepository
 import dagger.Component
 
 /**
