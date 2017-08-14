@@ -1,7 +1,7 @@
 package com.dubrovin.igor.redditclient.data.repository
 
 import com.dubrovin.igor.redditclient.data.api.news.INewsApi
-import com.dubrovin.igor.redditclient.data.api.news.RedditNewsResponse
+import com.dubrovin.igor.redditclient.domain.entity.RedditNewsResponse
 import com.dubrovin.igor.redditclient.domain.repository.INewsRepository
 
 import io.reactivex.Observable

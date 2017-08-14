@@ -1,4 +1,4 @@
-package com.dubrovin.igor.redditclient.data.api.news
+package com.dubrovin.igor.redditclient.domain.entity
 
 import com.dubrovin.igor.redditclient.domain.entity.RedditDataResponse
 

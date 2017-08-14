@@ -1,9 +1,7 @@
 package com.dubrovin.igor.redditclient.data.api.news
 
-import com.dubrovin.igor.redditclient.RedditApplication
+import com.dubrovin.igor.redditclient.domain.entity.RedditNewsResponse
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Query
 import javax.inject.Inject
 
 /**

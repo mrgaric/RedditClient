@@ -1,6 +1,6 @@
 package com.dubrovin.igor.redditclient.domain.repository
 
-import com.dubrovin.igor.redditclient.data.api.news.RedditNewsResponse
+import com.dubrovin.igor.redditclient.domain.entity.RedditNewsResponse
 import io.reactivex.Observable
 
 /**
