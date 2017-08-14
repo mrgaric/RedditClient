@@ -1,6 +1,5 @@
 package com.dubrovin.igor.redditclient.data.repository
 
-import com.dubrovin.igor.redditclient.RedditApplication
 import com.dubrovin.igor.redditclient.data.api.news.INewsApi
 import com.dubrovin.igor.redditclient.data.api.news.RedditNewsResponse
 import com.dubrovin.igor.redditclient.domain.repository.INewsRepository
@@ -12,14 +11,9 @@ import javax.inject.Inject
  * JuntoTeam
  * Created by Igor Dubrovin on 09.08.2017.
  */
-class NewsRepository : INewsRepository {
-
-    @Inject
-    lateinit var newsApi: INewsApi
-
-    init {
-        RedditApplication.repositoryComponent.inject(this)
-    }
+class NewsRepository @Inject constructor(
+        val newsApi: INewsApi
+) : INewsRepository {
 
     override fun getNews(after: String, limit: String): Observable<RedditNewsResponse> = Observable.create {
         val response = newsApi

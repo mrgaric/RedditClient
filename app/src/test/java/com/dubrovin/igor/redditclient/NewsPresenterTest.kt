@@ -35,9 +35,6 @@ class NewsPresenterTest{
 
         whenever(callMock.execute()).thenReturn(response)
 
-        val repo = NewsRepository()
-
-        repo.getNews().subscribe(testSub)
 
         testSub.assertNoErrors()
         testSub.assertValueCount(1)

@@ -10,14 +10,9 @@ import javax.inject.Inject
  * JuntoTeam
  * Created by Igor Dubrovin on 09.08.2017.
  */
-class NewsApi : INewsApi {
-
-    @Inject
-    lateinit var redditApi: RedditApi
-
-    init {
-        RedditApplication.applicationComponent.inject(this)
-    }
+class NewsApi @Inject constructor(
+        val redditApi: RedditApi
+) : INewsApi {
 
     override fun getNews(after: String, limit: String): Call<RedditNewsResponse> = redditApi.getTopNews(after, limit)
 

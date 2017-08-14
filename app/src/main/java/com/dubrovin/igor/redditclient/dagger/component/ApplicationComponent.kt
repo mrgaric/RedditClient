@@ -4,6 +4,7 @@ import com.dubrovin.igor.redditclient.dagger.module.ApiModule
 import com.dubrovin.igor.redditclient.dagger.module.ApplicationModule
 import com.dubrovin.igor.redditclient.dagger.module.NetworkModule
 import com.dubrovin.igor.redditclient.data.api.news.NewsApi
+import com.dubrovin.igor.redditclient.data.api.news.RedditApi
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,5 +18,5 @@ import javax.inject.Singleton
         NetworkModule::class
 ))
 interface ApplicationComponent {
-    fun inject(newsApi: NewsApi)
+    fun newsComponentBuilder(): NewsComponent.Builder
 }

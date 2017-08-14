@@ -11,33 +11,30 @@ import com.dubrovin.igor.redditclient.dagger.module.*
 class RedditApplication : Application() {
     companion object {
         lateinit var applicationComponent: ApplicationComponent
-        lateinit var interactorComponent: InteractorComponent
-        lateinit var presenterComponent: PresenterComponent
-        lateinit var repositoryComponent: RepositoryComponent
+        var newsComponent: NewsComponent? = null
+
+        fun plusNewsComponent(): NewsComponent{
+            if (newsComponent == null)
+                newsComponent = applicationComponent.newsComponentBuilder()
+                    .presenterModule(PresenterModule())
+                    .interactorModule(InteractorModule())
+                    .repositoryModule(RepositoryModule())
+                    .apiModule(ApiModule())
+                    .build()
+            return newsComponent as NewsComponent
+        }
+
+        fun clearNewsComponent(){
+            newsComponent = null
+        }
     }
 
     override fun onCreate() {
         super.onCreate()
-
         applicationComponent = DaggerApplicationComponent
                 .builder()
                 .applicationModule(ApplicationModule(this))
                 .networkModule(NetworkModule())
-                .build()
-
-        interactorComponent = DaggerInteractorComponent
-                .builder()
-                .repositoryModule(RepositoryModule())
-                .build()
-
-        presenterComponent = DaggerPresenterComponent
-                .builder()
-                .interactorModule(InteractorModule())
-                .build()
-
-        repositoryComponent = DaggerRepositoryComponent
-                .builder()
-                .apiModule(ApiModule())
                 .build()
     }
 }

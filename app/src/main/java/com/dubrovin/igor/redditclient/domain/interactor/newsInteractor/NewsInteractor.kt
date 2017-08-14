@@ -10,14 +10,9 @@ import javax.inject.Inject
  * JuntoTeam
  * Created by Igor Dubrovin on 09.08.2017.
  */
-class NewsInteractor : INewsInteractor {
-
-    @Inject
-    lateinit var newsRepository: INewsRepository
-
-    init {
-        RedditApplication.interactorComponent.inject(this)
-    }
+class NewsInteractor @Inject constructor(
+        var newsRepository: INewsRepository
+) : INewsInteractor {
 
     override fun getNews(after: String, limit: String): Observable<RedditDataResponse>
             = newsRepository.getNews(after)

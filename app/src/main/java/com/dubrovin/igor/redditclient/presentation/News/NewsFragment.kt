@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.arellomobile.mvp.presenter.InjectPresenter
-import com.arellomobile.mvp.presenter.PresenterType
+import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.dubrovin.igor.redditclient.R
+import com.dubrovin.igor.redditclient.RedditApplication
 import com.dubrovin.igor.redditclient.domain.entity.RedditNewsItem
 import com.dubrovin.igor.redditclient.presentation.BaseFragment
 import com.dubrovin.igor.redditclient.presentation.News.adapter.NewsAdapter
@@ -15,11 +16,9 @@ import com.dubrovin.igor.redditclient.utils.inflate
 import com.dubrovin.igor.redditclient.utils.listener.InfinityScrollListener
 import com.dubrovin.igor.redditclient.utils.showSnackbar
 import kotlinx.android.synthetic.main.fragment_news.*
+import javax.inject.Inject
 
 class NewsFragment : BaseFragment(), NewsView {
-
-    @InjectPresenter(type = PresenterType.LOCAL, tag = "News")
-    lateinit var newsPresenter: NewsPresenter
 
     private val rvNews by lazy {
         news_fragment_rv_news
@@ -33,9 +32,29 @@ class NewsFragment : BaseFragment(), NewsView {
         }
     }
 
+    private val newsComponent = RedditApplication.plusNewsComponent()
+
+    @Inject
+    @InjectPresenter
+    lateinit var newsPresenter: NewsPresenter
+
+    @ProvidePresenter
+    fun providePresenter(): NewsPresenter = newsPresenter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        newsComponent.inject(this)
+        super.onCreate(savedInstanceState)
+    }
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = container?.inflate(R.layout.fragment_news)
         return view
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (isRemoving)
+            RedditApplication.clearNewsComponent()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

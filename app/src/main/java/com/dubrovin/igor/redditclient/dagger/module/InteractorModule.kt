@@ -1,7 +1,9 @@
 package com.dubrovin.igor.redditclient.dagger.module
 
+import com.dubrovin.igor.redditclient.dagger.annotation.ActivityScope
 import com.dubrovin.igor.redditclient.domain.interactor.newsInteractor.INewsInteractor
 import com.dubrovin.igor.redditclient.domain.interactor.newsInteractor.NewsInteractor
+import com.dubrovin.igor.redditclient.domain.repository.INewsRepository
 import dagger.Module
 import dagger.Provides
 
@@ -11,6 +13,7 @@ import dagger.Provides
  */
 @Module
 class InteractorModule {
+    @ActivityScope
     @Provides
-    fun provideNewsInteractor(): INewsInteractor = NewsInteractor()
+    fun provideNewsInteractor(newsRepository: INewsRepository): INewsInteractor = NewsInteractor(newsRepository)
 }

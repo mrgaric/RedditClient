@@ -14,16 +14,11 @@ import javax.inject.Inject
  * Created by Igor Dubrovin on 09.08.2017.
  */
 @InjectViewState
-class NewsPresenter : BasePresenter<NewsView>() {
+class NewsPresenter @Inject constructor(
+        var newsInteractor: INewsInteractor
+) : BasePresenter<NewsView>() {
 
-    @Inject
-    lateinit var newsInteractor: INewsInteractor
-
-    init {
-        RedditApplication.presenterComponent.inject(this)
-    }
-
-    private var after: String ?= null
+    private var after: String? = null
 
     fun getNews() {
         newsInteractor.getNews(after ?:"")
